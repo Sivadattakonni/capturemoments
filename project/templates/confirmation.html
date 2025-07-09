@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Booking Confirmation{% endblock %}
+{% block content %}
+  <div style="background:rgba(0,0,0,0.7);padding:30px 20px 20px 20px;border-radius:16px;max-width:500px;margin:40px auto;box-shadow:0 4px 16px rgba(0,0,0,0.2);">
+    <h1 style="color:#ffd700;font-size:2.5em;margin-bottom:10px;">Thank You for Your Booking!</h1>
+    <h3 style="color:#fff;margin-top:0;">Your booking has been confirmed.</h3>
+    <p style="color:#eee;">We appreciate your trust in Capture Moments. We’ll be in touch soon with more details.</p>
+    {% if booking %}
+      <ul style="list-style:none; padding:0; color:#fff; text-align:left;">
+        <li><strong>Name:</strong> {{ booking.full_name }}</li>
+        <li><strong>Email:</strong> {{ booking.email }}</li>
+        <li><strong>Contact:</strong> {{ booking.contact }}</li>
+        <li><strong>Photographer ID:</strong> {{ booking.photographer_id }}</li>
+        <li><strong>Date:</strong> {{ booking.date }}</li>
+        <li><strong>Location:</strong> {{ booking.location }}</li>
+        <li><strong>Package:</strong> {{ package }}</li>
+      </ul>
+    {% endif %}
+    <a href="{{ url_for('home') }}" style="display:inline-block;margin-top:20px;padding:10px 24px;background:#ffd700;color:#222;text-decoration:none;border-radius:8px;font-weight:bold;">Back to Home</a>
+  </div>
+{% endblock %}
